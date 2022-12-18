@@ -1,0 +1,24 @@
+CREATE TABLE Product
+(
+ "id"                  int NOT NULL,
+ product_description varchar(150) NOT NULL,
+ product_name        varchar(50) NOT NULL,
+ CONSTRAINT PK_1 PRIMARY KEY ( "id" )
+);
+
+CREATE TABLE Product
+(
+ "id"                  int NOT NULL,
+ product_description varchar(150) NOT NULL,
+ product_name        varchar(50) NOT NULL,
+ CONSTRAINT PK_1 PRIMARY KEY ( "id" )
+);
+
+CREATE TABLE Customer
+(
+ "id"              int NOT NULL,
+ cust_date_birth date NOT NULL,
+ cust_name       varchar(50) NOT NULL,
+ height          decimal NOT NULL,
+ CONSTRAINT PK_1 PRIMARY KEY ( "id" )
+);

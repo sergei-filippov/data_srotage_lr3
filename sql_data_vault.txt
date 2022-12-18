@@ -1,0 +1,94 @@
+CREATE TABLE Product
+(
+ "id" int NOT NULL,
+ CONSTRAINT PK_1 PRIMARY KEY ( "id" )
+);
+
+CREATE TABLE Purchase
+(
+ "id" int NOT NULL,
+ CONSTRAINT PK_1 PRIMARY KEY ( "id" )
+);
+
+CREATE TABLE Customer
+(
+ "id" int NOT NULL,
+ CONSTRAINT PK_1 PRIMARY KEY ( "id" )
+);
+
+CREATE TABLE Customer_attribs
+(
+ cust_date_birth date NOT NULL,
+ customer_id     int NOT NULL,
+ cust_name       varchar(50) NOT NULL,
+ height          decimal NOT NULL,
+ CONSTRAINT FK_7_1 FOREIGN KEY ( customer_id ) REFERENCES Customer ( "id" )
+);
+
+CREATE INDEX FK_1 ON Customer_attribs
+(
+ customer_id
+);
+
+CREATE TABLE Customer_purchase
+(
+ customer_id int NOT NULL,
+ purchase_id int NOT NULL,
+ CONSTRAINT FK_5 FOREIGN KEY ( customer_id ) REFERENCES Customer ( "id" ),
+ CONSTRAINT FK_6 FOREIGN KEY ( purchase_id ) REFERENCES Purchase ( "id" )
+);
+
+CREATE INDEX FK_1 ON Customer_purchase
+(
+ customer_id
+);
+
+CREATE INDEX FK_2 ON Customer_purchase
+(
+ purchase_id
+);
+
+
+CREATE TABLE Product_attribs
+(
+ product_description varchar(150) NOT NULL,
+ product_id          int NOT NULL,
+ CONSTRAINT FK_4 FOREIGN KEY ( product_id ) REFERENCES Product ( "id" )
+);
+
+CREATE INDEX FK_1 ON Product_attribs
+(
+ product_id
+);
+
+CREATE TABLE Product_purchase
+(
+ purschase_id int NOT NULL,
+ product_id   int NOT NULL,
+ CONSTRAINT FK_2 FOREIGN KEY ( purschase_id ) REFERENCES Purchase ( "id" ),
+ CONSTRAINT FK_3 FOREIGN KEY ( product_id ) REFERENCES Product ( "id" )
+);
+
+CREATE INDEX FK_1 ON Product_purchase
+(
+ purschase_id
+);
+
+CREATE INDEX FK_2 ON Product_purchase
+(
+ product_id
+);
+
+CREATE TABLE Purchase_attribs
+(
+ purchase_id   int NOT NULL,
+ purchase_time time NOT NULL,
+ quantity      int NOT NULL,
+ weight        decimal NOT NULL,
+ CONSTRAINT FK_7 FOREIGN KEY ( purchase_id ) REFERENCES Purchase ( "id" )
+);
+
+CREATE INDEX FK_1 ON Purchase_attribs
+(
+ purchase_id
+);
